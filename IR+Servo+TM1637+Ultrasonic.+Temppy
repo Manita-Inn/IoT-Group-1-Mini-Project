@@ -1,4 +1,4 @@
-import network, urequests, time
+import network, urequests, time, dht
 from machine import Pin, PWM
 from tm1637 import TM1637
 import machine
@@ -13,6 +13,13 @@ PASS      = "hensarith"
 BOT_TOKEN = "8415101738:AAGYO8zwir8sqOhEJwlj0l4KNwHlPmIEywU"
 CHAT_ID   = "-5035961178"
 
+URL = "https://api.telegram.org/bot{}/".format(BOT_TOKEN)
+
+# ==============================
+# DHT11 SENSOR (PIN 27)
+# ==============================
+dht_sensor = dht.DHT11(Pin(15))
+
 # ==============================
 # SERVO — PIN 21
 # ==============================
@@ -26,10 +33,9 @@ def set_gate(duty):
     print("Servo duty:", duty)
 
 # ==============================
-# IR SENSORS
+# IR PARKING SENSORS
 # ==============================
 ir_sensors = [Pin(32, Pin.IN), Pin(35, Pin.IN), Pin(33, Pin.IN)]
-
 TOTAL_SLOTS = 3
 
 def get_available():
@@ -47,7 +53,7 @@ def update_display():
     return available
 
 # ==============================
-# ULTRASONIC
+# ULTRASONIC SENSOR
 # ==============================
 TRIG = Pin(17, Pin.OUT)
 ECHO = Pin(16, Pin.IN)
@@ -79,7 +85,6 @@ def get_distance():
     end = time.ticks_us()
 
     duration = time.ticks_diff(end, start)
-
     distance = (duration * 0.0343) / 2
 
     return round(distance,1)
@@ -88,7 +93,6 @@ def get_distance():
 # WIFI
 # ==============================
 wifi = network.WLAN(network.STA_IF)
-
 wifi.active(True)
 wifi.connect(SSID, PASS)
 
@@ -99,15 +103,18 @@ while not wifi.isconnected():
 
 print("WiFi Ready:", wifi.ifconfig())
 
-URL = "https://api.telegram.org/bot{}/".format(BOT_TOKEN)
-
+# ==============================
+# TELEGRAM SEND MESSAGE
+# ==============================
 def send_msg(text):
     try:
         urequests.post(
             URL + "sendMessage",
             json={"chat_id": CHAT_ID, "text": text}
         ).close()
+
         print("Sent:", text)
+
     except Exception as e:
         print("Send error:", e)
 
@@ -122,6 +129,7 @@ try:
     r = urequests.get(URL + "getUpdates?offset=-1&timeout=3", timeout=10)
 
     if r.status_code == 200:
+
         data = r.json()
         r.close()
 
@@ -130,14 +138,9 @@ try:
         if results:
             last_id = results[-1]["update_id"]
             print("Skipped to ID:", last_id)
-        else:
-            print("No old messages")
 
-    else:
-        r.close()
-
-except Exception as e:
-    print("Skip error:", e)
+except:
+    pass
 
 # ==============================
 # VARIABLES
@@ -159,7 +162,7 @@ while True:
     try:
 
         # --------------------------
-        # Update Display
+        # Update Parking Display
         # --------------------------
         available = update_display()
         occupied = TOTAL_SLOTS - available
@@ -173,8 +176,6 @@ while True:
 
             gate_open = False
             last_detect_time = None
-
-            print("Parking FULL — Gate CLOSED")
 
             send_msg(
                 "Parking FULL\n"
@@ -203,8 +204,6 @@ while True:
                     gate_open = True
                     full_notified = False
 
-                    print("Vehicle detected — Gate OPEN")
-
                     send_msg(
                         "Vehicle detected {}cm\n"
                         "Gate OPEN\n"
@@ -214,8 +213,6 @@ while True:
             else:
 
                 if not full_notified:
-
-                    print("Parking FULL — vehicle denied")
 
                     send_msg(
                         "Vehicle detected {}cm\n"
@@ -230,11 +227,6 @@ while True:
             if gate_open and last_detect_time is not None:
 
                 elapsed = time.ticks_diff(time.ticks_ms(), last_detect_time)/1000
-                remaining = AUTO_CLOSE_SEC - elapsed
-
-                if remaining > 0:
-
-                    print("No vehicle — closing in {:.1f}s".format(remaining))
 
                 if elapsed >= AUTO_CLOSE_SEC:
 
@@ -243,8 +235,6 @@ while True:
                     gate_open = False
                     last_detect_time = None
                     full_notified = False
-
-                    print("Auto close gate")
 
                     send_msg("Gate CLOSED automatically")
 
@@ -270,7 +260,20 @@ while True:
 
                     print("Received:", text)
 
-                    if "/open" in text:
+                    # --------------------------
+                    # TEMPERATURE COMMAND
+                    # --------------------------
+                    if "/temp" in text:
+
+                        dht_sensor.measure()
+                        t = dht_sensor.temperature()
+                        h = dht_sensor.humidity()
+
+                        send_msg(
+                            "Temperature: {}°C\nHumidity: {}%".format(t,h)
+                        )
+
+                    elif "/open" in text:
 
                         if get_available() == 0:
 
@@ -315,13 +318,9 @@ while True:
                             )
                         )
 
-        else:
-            r.close()
-
     except Exception as e:
 
         print("Error:", e)
+        time.sleep(1)
 
-        time.sleep(2)
-
-    time.sleep(1)
+    time.sleep(0.5)
