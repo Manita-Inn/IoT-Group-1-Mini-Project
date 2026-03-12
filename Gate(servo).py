@@ -5,13 +5,13 @@ import machine
 machine.freq(80_000_000)
 
 # Settings
-SSID = "Rosie Coffee"
-PASS = "rosiecoffee8888"
+SSID = "Hen Sarith"
+PASS = "hensarith"
 BOT_TOKEN = "8415101738:AAGYO8zwir8sqOhEJwlj0l4KNwHlPmIEywU"
 CHAT_ID = "-5035961178"
 
-# Servo setup on PIN 23
-servo = PWM(Pin(23), freq=50)
+# Servo setup on PIN 21
+servo = PWM(Pin(21), freq=50)
 
 # Calibrated Duty Values
 DUTY_CLOSE = 49
@@ -42,10 +42,28 @@ while not wifi.isconnected():
 print("WiFi Ready. IP:", wifi.ifconfig()[0])
 
 URL = "https://api.telegram.org/bot{}/".format(BOT_TOKEN)
-last_id = 0
 gate_open = False
 
-print("Bot running... Waiting for commands.")
+# ── Skip all existing messages on boot ──────────────────────
+print("Skipping old messages...")
+last_id = 0
+try:
+    r = urequests.get(URL + "getUpdates?offset=-1&timeout=3", timeout=10)
+    if r.status_code == 200:
+        data = r.json()
+        r.close()
+        results = data.get("result", [])
+        if results:
+            last_id = results[-1]["update_id"]
+            print("Skipped up to message ID: {}".format(last_id))
+        else:
+            print("No old messages found.")
+    else:
+        r.close()
+except Exception as e:
+    print("Skip error:", e)
+
+print("Bot running... Only NEW messages will be processed.")
 
 while True:
     try:
@@ -79,7 +97,6 @@ while True:
                         gate_status = "OPEN" if gate_open else "CLOSED"
                         print(">>> Status: {}".format(gate_status))
                         send_msg("Gate Status: {}".format(gate_status))
-
         else:
             r.close()
 
