@@ -1,6 +1,7 @@
 import network, urequests, time, dht
-from machine import Pin, PWM
+from machine import Pin, PWM, I2C
 from tm1637 import TM1637
+from lcd_i2c import LCD
 import machine
 import socket
 
@@ -105,6 +106,33 @@ def update_display():
     available = get_available()
     tm.show(list("{:0>4}".format(available)))
     return available
+
+# ==============================
+# LCD I2C — SDA=GPIO25, SCL=GPIO26
+# Address: 0x27 (change to 0x3F if not found)
+# ==============================
+i2c = I2C(0, sda=Pin(25), scl=Pin(26), freq=400000)
+lcd  = LCD(i2c, addr=0x27, rows=2, cols=16)
+
+lcd_last_update = 0
+LCD_INTERVAL_MS = 1000   # refresh LCD every 1s
+
+def lcd_update(available, gate, temp, hum):
+    try:
+        lcd.clear()
+        # Row 0: slot count + gate status
+        gate_str = "OPEN" if gate else "CLSD"
+        lcd.move_to(0, 0)
+        lcd.print("Slots:{}/{}  {}".format(available, TOTAL_SLOTS, gate_str))
+        # Row 1: temperature + humidity
+        if temp is not None and hum is not None:
+            lcd.move_to(0, 1)
+            lcd.print("T:{}C  H:{}%".format(temp, hum))
+        else:
+            lcd.move_to(0, 1)
+            lcd.print("T:--C  H:-- %")
+    except Exception as e:
+        print("LCD error:", e)
 
 # ==============================
 # ULTRASONIC SENSOR — PIN 17, 16
@@ -387,6 +415,10 @@ cached_hum       = None
 last_dht_time    = 0
 DHT_INTERVAL_MS  = 10000
 
+# LCD refresh
+lcd_last_update = 0
+LCD_INTERVAL_MS = 1000
+
 # Telegram poll — every 5s, timeout=0 (non-blocking)
 last_tg_time   = 0
 TG_INTERVAL_MS = 5000
@@ -570,6 +602,13 @@ while True:
         # --------------------------
         available = update_display()
         occupied  = TOTAL_SLOTS - available
+
+        # --------------------------
+        # LCD I2C — refresh every 1s
+        # --------------------------
+        if time.ticks_diff(time.ticks_ms(), lcd_last_update) >= LCD_INTERVAL_MS:
+            lcd_last_update = time.ticks_ms()
+            lcd_update(available, gate_open, cached_temp, cached_hum)
 
         # --------------------------
         # DHT11 — Read every 10s
