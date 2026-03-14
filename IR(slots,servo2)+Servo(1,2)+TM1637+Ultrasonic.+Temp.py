@@ -3,14 +3,13 @@ from machine import Pin, PWM
 from tm1637 import TM1637
 import machine
 
-machine.freq(80_000_000)
 
 # ==============================
 # SETTINGS
 # ==============================
-SSID      = "Hen Sarith"
-PASS      = "hensarith"
-BOT_TOKEN = "8415101738:AAGYO8zwir8sqOhEJwlj0l4KNwHlPmIEywU"
+SSID      = "THIRD WAVE COFFEE TECHNO"
+PASS      = "168168168@$"
+BOT_TOKEN = "8415101738:AAGYO8zwir8sqOhEJwlj0l4KNwHlPmIIywU"
 CHAT_ID   = "-5035961178"
 
 URL = "https://api.telegram.org/bot{}/".format(BOT_TOKEN)
