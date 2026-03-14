@@ -14,7 +14,7 @@ PASS      = "hensarith"
 BOT_TOKEN = "8415101738:AAGYO8zwir8sqOhEJwlj0l4KNwHlPmIIywU"
 CHAT_ID   = "-5035961178"
 
-BLYNK_TOKEN  = "your_blynk_token_here"
+BLYNK_TOKEN  = "YboG5Ey3U62iIilkE2vPj9xTHUqzu0TP"
 BLYNK_URL    = "https://blynk.cloud/external/api"
 
 URL = "https://api.telegram.org/bot{}/".format(BOT_TOKEN)
