@@ -6,11 +6,12 @@ import socket
 
 machine.freq(80_000_000)
 
+
 # ==============================
 # SETTINGS
 # ==============================
-SSID      = "Hen Sarith"
-PASS      = "hensarith"
+SSID      = "THIRD WAVE COFFEE TECHNO"
+PASS      = "168168168@$"
 BOT_TOKEN = "8415101738:AAGYO8zwir8sqOhEJwlj0l4KNwHlPmIIywU"
 CHAT_ID   = "-5035961178"
 
