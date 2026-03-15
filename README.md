@@ -23,7 +23,10 @@ The hardware components used in this project include sensors for detecting vehic
   * Jumper wires: used to connect sensors, displays and actuators to the ESP32 pins 
 
 ## System Architecture
-The system architecture follows a layered structure consisting of sensors, processing and user interfaces.
+The Smart Parking System is designed using an IoT-based architecture where sensors collect real-time data, the microcontroller processes the information, and multiple platforms allow monitoring and control.
+
+The system consists of four main layers: sensing layer, processing layer, communication layer, and application layer.
+
 
 ## Software Architecture 
 
