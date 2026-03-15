@@ -32,6 +32,7 @@ The system architecture follows a layered structure consisting of sensors, proce
 ## Working Process Explanation 
 
 ## Smart Feature:
+One of the smart features of this system is automatic gate control based on parking slot availability. The system continuously monitors the parking slots using sensors. If all slots are occupied, the entrance gate will remain closed even when a vehicle approaches, preventing additional vehicles from entering the parking area. 
 
 ## Challenges Faced
 During the development of the Smart Parking System, several challenges were encountered while integrating the hardware and software components.
