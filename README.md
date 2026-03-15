@@ -34,7 +34,7 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 ## Working Process Explanation 
 
-## Smart Feature:
+## Smart Feature
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/e4e89e5bdcca3371027a097438f5471125937fd6/Smart%20Feature.jpg)
 One of the smart features of this system is automatic gate control based on parking slot availability. The system continuously monitors the parking slots using sensors. If all slots are occupied, the entrance gate will remain closed even when a vehicle approaches, preventing additional vehicles from entering the parking area. 
 
