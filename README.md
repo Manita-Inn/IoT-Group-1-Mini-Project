@@ -6,6 +6,7 @@ The Smart Parking System is an Internet of Things (IoT) solution designed to imp
 The system provides real-time parking information through multiple interfaces, including a web dashboard, a mobile application using Blynk IoT Platform, and a notification system through Telegram. By integrating sensors, automation and cloud communication, the system improves parking efficiency and reduces the time drivers spend searching for available parking spaces. 
 
 ## Hardware Description
+![HARDWARE COMPONENT](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/3f306e3b8b9d920574e5af4ac8b0bd4cdad72533/Hardware%20components.png)
 The hardware components used in this project include sensors for detecting vehicles, displays for showing parking information and actuators for controlling gates.
 * **Main Controller:** ESP32 Microcontroller - Handles all sensors inputs, gate control, WiFi communication and system logic
 * **Sensors:**
