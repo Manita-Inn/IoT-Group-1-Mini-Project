@@ -16,7 +16,10 @@ The hardware components used in this project include sensors for detecting vehic
   * Servo Motors: control entry and exit gates.
 * **Displays:** 
   * TM1637 4-Digit Display Module - Displays the number of available parking spaces
-  * I2C 16x2 LCD Display - Displays   
+  * I2C 16x2 LCD Display - Displays
+* **Supporting components:**
+  * Power Supply / USB Cable: provides power to the ESP32 and the connected modules
+  * Jumper wires: used to connect sensors, displays and actuators to the ESP32 pins 
 
 ## System Architecture
 The system architecture follows a layered structure consisting of sensors, processing and user interfaces.
