@@ -31,6 +31,8 @@ The system architecture follows a layered structure consisting of sensors, proce
 
 ## Working Process Explanation 
 
+## Smart Feature:
+
 ## Challenges Faced
 During the development of the Smart Parking System, several challenges were encountered while integrating the hardware and software components.
 * Brownout errors: These occurred when multiple components, especially the servo motors, consumed high current simultaneously, causing the microcontroller to reset.
@@ -39,6 +41,7 @@ During the development of the Smart Parking System, several challenges were enco
 * LCD display issues: The LCD initially did not display any output, which required hardware adjustment using the onboard potentiometer (screw adjustment) to correctly set the screen contrast.
 * Servo angle calibration: Determining the correct angle for the servo motors to properly open and close the gates required several tests and adjustments.
 * System integration complexity: Integrating multiple systems including sensor code, Telegram communication, the Blynk IoT Platform, and the web dashboard into a single program caused delays and required extensive debugging.
+* IR Sensor Testing: While testing the demo, the IR sensors must indicate the absence of sunlight, as they detect infrared light. In sunlight, the sensors activate both lights, so we have to find a location without sunlight to ensure the IR sensors operate accurately.
 
 ## Future Improvements
 * Increasing parking capacity: The system can be expanded to support more parking slots by adding additional sensors and extending the detection logic.
