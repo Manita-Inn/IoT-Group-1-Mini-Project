@@ -7,8 +7,8 @@ The system provides real-time parking information through multiple interfaces, i
 
 ## Hardware Description
 The hardware components used in this project include sensors for detecting vehicles, displays for showing parking information and actuators for controlling gates.
-* Main Controller: ESP32 Microcontroller - Handles all sensors inputs, gate control, WiFi communication and system logic
-* Sensors:
+* **Main Controller:** ESP32 Microcontroller - Handles all sensors inputs, gate control, WiFi communication and system logic
+* **Sensors:**
   * DHT11 Temperature and Humidity Sensor - Measures temperatrue and humidity for environmental monitoring
   
 
