@@ -19,6 +19,7 @@ The hardware components used in this project include sensors for detecting vehic
   * I2C 16x2 LCD Display - Displays   
 
 ## System Architecture
+The system architecture follows a layered structure consisting of sensors, processing and user interfaces.
 
 ## Software Architecture 
 
