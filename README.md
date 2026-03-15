@@ -10,7 +10,13 @@ The hardware components used in this project include sensors for detecting vehic
 * **Main Controller:** ESP32 Microcontroller - Handles all sensors inputs, gate control, WiFi communication and system logic
 * **Sensors:**
   * DHT11 Temperature and Humidity Sensor - Measures temperatrue and humidity for environmental monitoring
-  
+  * HC-SR04 Ultrasonic Distance Sensor - Detects vehicles approaching the entrance gate
+  * IR Sensors: detect vehicle presence in parking slots - used for slot availability detection     and exit detection
+* **Actuators:**
+  * Servo Motors: control entry and exit gates.
+* Displays: 
+  * TM1637 4-Digit Display Module - Displays the number of available parking spaces
+  * I2C 16x2 LCD Display - Displays   
 
 **Main controller:**
 
