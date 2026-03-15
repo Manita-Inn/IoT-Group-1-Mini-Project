@@ -18,8 +18,6 @@ The hardware components used in this project include sensors for detecting vehic
   * TM1637 4-Digit Display Module - Displays the number of available parking spaces
   * I2C 16x2 LCD Display - Displays   
 
-**Main controller:**
-
 ## System Architecture
 
 ## Software Architecture 
