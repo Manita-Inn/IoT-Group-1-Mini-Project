@@ -14,7 +14,7 @@ The hardware components used in this project include sensors for detecting vehic
   * IR Sensors: detect vehicle presence in parking slots - used for slot availability detection     and exit detection
 * **Actuators:**
   * Servo Motors: control entry and exit gates.
-* Displays: 
+* **Displays:** 
   * TM1637 4-Digit Display Module - Displays the number of available parking spaces
   * I2C 16x2 LCD Display - Displays   
 
