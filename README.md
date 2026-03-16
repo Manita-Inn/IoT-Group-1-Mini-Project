@@ -86,7 +86,7 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 **3. Communication Layer**
 > The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
-- **Internet / WiFi Connectivity**
+- **Internet / WiFi Connectivity:**
 The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity. Functions of this layer include:
 
 1. Sending parking data to IoT platforms (Telegram bot, website, and Blynk mobile app)
