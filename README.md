@@ -53,6 +53,7 @@ The system consists of four main layers: sensing layer, processing layer, commun
   > Operational Logic:
   1. Sensor Value is 0 > Slot is empty
   2. Sensor Value is 1 > Slot is Occupied
+> Special IR or IR Exit Sensor is an additional infrared sensor which installed at the exit gate to detect vehicles leaving the parking area. **Functions**: Detect vehicles exiting the parking lot and trigger automatic opening of the exit gate. Once a vehicle passes the exit sensor, the system opens the exit gate and automatically closes it after a short delay. 
 
 * **DHT11 Sensor:** Environmental Monitoring
 > The DHT11 sensor measures temperature and humidity in the parking environment. Although it is not required for parking operations, it provides useful environmental data for monitoring the parking area. The data is used for:
@@ -64,15 +65,57 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 > The processing layer is the core intelligence of the system, handled by the ESP32 microcontroller running MicroPython.The ESP32 is responsible for:
 
-- Reading sensor data
-- Processing parking logic
-- Controlling gate operations
-- Communicating with IoT platforms
-- Running the web server
+• Reading sensor data
+• Counting available parking slots
+• Controlling the entry and exit gates
+• Preventing vehicles from entering when parking is full
+• Sending system data to IoT platforms
 
-**3. Actuation Layer**
+> Parking Slot Management: The ESP32 reads the IR slot sensors and determines the number of available parking spaces.
+>  Gate Control Logic: The ESP32 determines when to open or close the parking gates based on several conditions.
+1. The entry gate opens when:
+- A vehicle is detected by the ultrasonic sensor
+- At least one parking slot is available
 
-**4. IoT Communication Layer**
+2. The entry gate remains closed when:
+
+- No vehicle is detected
+- Parking is full
+
+3. The exit gate opens automatically when the exit IR sensor detects a vehicle leaving.
+
+**3. Communication Layer**
+> The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
+- **Internet / WiFi Connectivity**
+The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Functions of this layer include:
+
+1. Sending parking data to IoT platforms (Telegram bot, website, and Blynk mobile app)
+2. Receiving remote commands
+3. Hosting the web dashboard
+4. Sending notifications
+> Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity
+
+**4. Application Layer**
+> he application layer contains the user interfaces and applications used to monitor and control the system. These applications allow users to interact with the parking system remotely. The system integrates **three main IoT platforms**.
+
+**1. Telegram Bot**
+> The Telegram bot provides a messaging interface that allows users to interact with the system using commands.
+![alt text](image.png)
+**2. Web Dashboard**
+> The ESP32 hosts a built-in web server that provides a real-time dashboard accessible through a web browser. Users can open the dashboard using the ESP32 IP address. Features:
+- Real-time parking slot display
+- Slot occupancy visualization
+- Gate status monitoring
+- Temperature and humidity display
+- Manual gate control buttons
+**3. Blynk Mobile Application**
+> The Blynk app provides a mobile dashboard that allows users to monitor the parking system in real time. Features:
+- Display available parking slots
+- Show temperature and humidity data
+- Display gate status
+- Allow remote gate control
+
+
 
 
 ## Software Architecture 
