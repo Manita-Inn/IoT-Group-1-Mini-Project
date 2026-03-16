@@ -72,20 +72,34 @@ The system consists of four main layers: sensing layer, processing layer, commun
 - Sending system data to IoT platforms
 
 > Parking Slot Management: The ESP32 reads the IR slot sensors and determines the number of available parking spaces.
->  Gate Control Logic: The ESP32 determines when to open or close the parking gates based on several conditions.
-1. The entry gate opens when:
-- A vehicle is detected by the ultrasonic sensor
-- At least one parking slot is available
+>  Gate Control Logic: The ESP32 determines when to open or close the parking gates based on several conditions. The entry gate opens when a vehicle is detected by the ultrasonic sensor and at least one parking slot is available. The entry gate remains closed when no vehicle is detected and parking is full. Lastly, the exit gate opens automatically when the exit IR sensor detects a vehicle leaving.
 
-2. The entry gate remains closed when:
+* **Actuators: Servo Motors**
 
-- No vehicle is detected
-- Parking is full
+> Two servo motors are used to control the parking gates. 
+1. Entry Gate Servo:
+- Opens when a vehicle is detected and parking is available
+- Closes automatically after the vehicle enters
 
-3. The exit gate opens automatically when the exit IR sensor detects a vehicle leaving.
+2. Exit Gate Servo:
+- Opens when a vehicle passes the exit sensor
+- Closes after a short delay
+
+* **Display**
+***1. LCD 16x2 Display***
+The LCD screen displays system status locally. Displayed information includes:
+- Available parking slots
+- Gate status
+- Temperature
+- Humidity
+***1. LCD 16x2 Display***
+The TM1637 display shows the number of available parking slots at the parking entrance.
+
+Drivers can easily see whether parking is available before entering the parking area.
 
 **3. Communication Layer**
 > The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
+
 - **Internet / WiFi Connectivity:**
 The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity. Functions of this layer include:
 
