@@ -28,7 +28,7 @@ The Smart Parking System is designed using an IoT-based architecture where senso
 The system consists of four main layers: sensing layer, processing layer, communication layer, and application layer.
 
 1. Sensing Layer
-The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
+* The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
 
 
 2. Processing Layer
