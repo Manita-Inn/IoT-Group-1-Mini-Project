@@ -34,13 +34,28 @@ The system consists of four main layers: sensing layer, processing layer, commun
   1. Detects when a vehicle approaches the parking entrance
   2. Triggers the gate opening process if parking slots are available
   3. Prevents unnecessary gate opening when no vehicle is present
-  Operational Logic:
-  - The sensor continuously measures distance.
-  - If the detected distance is less than 10 cm, a vehicle is considered present.
-  - The system then checks parking slot availability.
-  - If a slot is available, the gate opens automatically.
-  - This allows the parking system to operate without manual intervention.
+  > Operational Logic:
+  1. The sensor continuously measures distance.
+  2. If the detected distance is less than 10 cm, a vehicle is considered present.
+  3. The system then checks parking slot availability.
+  4. If a slot is available, the gate opens automatically.
+  5. This allows the parking system to operate without manual intervention.
 
+* **IR Sensor:** Parking Slot Detection
+> Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot. Function in the System:
+  1. Monitor individual parking spaces
+  2. Determine the number of available parking slots
+  3. Update the parking slot display
+  4. Provide real-time information to the web dashboard and Blynk application
+  > Operational Logic:
+  1. Sensor Value is 0 > Slot is empty
+  2. Sensor Value is 1 > Slot is Occupied
+
+* **DHT11 Sensor:** Environmental Monitoring
+> The DHT11 sensor measures temperature and humidity in the parking environment. Although it is not required for parking operations, it provides useful environmental data for monitoring the parking area. The data is used for:
+  1. Displaying environmental conditions on the LCD screen
+  2. Sending temperature and humidity data to the Blynk application
+  3. Providing environmental monitoring through Telegram commands
 
 
 
