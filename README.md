@@ -76,7 +76,8 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 * **Actuators: Servo Motors**
 
-> Two servo motors are used to control the parking gates. 
+Two servo motors are used to control the parking gates.
+ 
 1. Entry Gate Servo:
 - Opens when a vehicle is detected and parking is available
 - Closes automatically after the vehicle enters
@@ -85,7 +86,7 @@ The system consists of four main layers: sensing layer, processing layer, commun
 - Opens when a vehicle passes the exit sensor
 - Closes after a short delay
 
-* **Display**
+**Display**
 
 ***1. LCD 16x2 Display***
 The LCD screen displays system status locally. Displayed information includes:
