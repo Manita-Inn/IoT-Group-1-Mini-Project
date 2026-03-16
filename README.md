@@ -73,6 +73,7 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 
 ## Software Architecture 
+!()[https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/51471eebc59868aa3f48107e3c81660432b93f3c/Software%20Architecture.png]
 
 ## IoT integration 
 
