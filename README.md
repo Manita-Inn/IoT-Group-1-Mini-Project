@@ -24,6 +24,7 @@ The hardware components used in this project include sensors for detecting vehic
 
 ## System Architecture
 The Smart Parking System is designed using an IoT-based architecture where sensors collect real-time data, the microcontroller processes the information, and multiple platforms allow monitoring and control.
+![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/fb3381e5996d80e07275762a7439296d985b02b2/System%20Architecture.png)
 
 The system consists of four main layers: sensing layer, processing layer, communication layer, and application layer.
 
