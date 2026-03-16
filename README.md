@@ -59,17 +59,19 @@ The system consists of four main layers: sensing layer, processing layer, commun
   2. Sending temperature and humidity data to the Blynk application
   3. Providing environmental monitoring through Telegram commands
 
-
-
 **2. Processing Layer**
+
+> The processing layer is the core intelligence of the system, handled by the ESP32 microcontroller running MicroPython.The ESP32 is responsible for:
+
+- Reading sensor data
+- Processing parking logic
+- Controlling gate operations
+- Communicating with IoT platforms
+- Running the web server
 
 **3. Actuation Layer**
 
 **4. IoT Communication Layer**
-
-
-
-
 
 
 ## Software Architecture 
