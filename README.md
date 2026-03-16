@@ -87,35 +87,34 @@ The system consists of four main layers: sensing layer, processing layer, commun
 **3. Communication Layer**
 > The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
 - **Internet / WiFi Connectivity**
-The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Functions of this layer include:
+The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity. Functions of this layer include:
 
 1. Sending parking data to IoT platforms (Telegram bot, website, and Blynk mobile app)
 2. Receiving remote commands
 3. Hosting the web dashboard
 4. Sending notifications
-> Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity
 
 **4. Application Layer**
 > he application layer contains the user interfaces and applications used to monitor and control the system. These applications allow users to interact with the parking system remotely. The system integrates **three main IoT platforms**.
 
-**1. Telegram Bot**
+**Telegram Bot**
 > The Telegram bot provides a messaging interface that allows users to interact with the system using commands.
 ![alt text](image.png)
 
-**2. Web Dashboard**
+**Web Dashboard**
 > The ESP32 hosts a built-in web server that provides a real-time dashboard accessible through a web browser. Users can open the dashboard using the ESP32 IP address. Features:
 - Real-time parking slot display
 - Slot occupancy visualization
 - Gate status monitoring
 - Temperature and humidity display
 - Manual gate control buttons
-**3. Blynk Mobile Application**
+
+**Blynk Mobile Application**
 > The Blynk app provides a mobile dashboard that allows users to monitor the parking system in real time. Features:
 - Display available parking slots
 - Show temperature and humidity data
 - Display gate status
 - Allow remote gate control
-
 
 
 
