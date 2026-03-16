@@ -86,16 +86,16 @@ The system consists of four main layers: sensing layer, processing layer, commun
 - Closes after a short delay
 
 * **Display**
+
 ***1. LCD 16x2 Display***
 The LCD screen displays system status locally. Displayed information includes:
 - Available parking slots
 - Gate status
 - Temperature
 - Humidity
-***1. LCD 16x2 Display***
-The TM1637 display shows the number of available parking slots at the parking entrance.
 
-Drivers can easily see whether parking is available before entering the parking area.
+***2. TM1637 7-Segment Display***
+The TM1637 display shows the number of available parking slots at the parking entrance. Drivers can easily see whether parking is available before entering the parking area.
 
 **3. Communication Layer**
 > The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
