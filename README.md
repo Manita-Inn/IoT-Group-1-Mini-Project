@@ -27,39 +27,39 @@ The Smart Parking System is designed using an IoT-based architecture where senso
 
 The system consists of four main layers: sensing layer, processing layer, communication layer, and application layer.
 
-1. Sensing Layer
+**1. Sensing Layer**
 > The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
-* **Ultrasonic Sensor:** :Vehicle Detection
+* **Ultrasonic Sensor:** Vehicle Detection
 > The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time.
 
-Inside the system, it performs the following tasks:
+  Inside the system, it performs the following tasks:
 
-1. Detects when a vehicle approaches the parking entrance
+  1. Detects when a vehicle approaches the parking entrance
 
-2. Triggers the gate opening process if parking slots are available
+  2. Triggers the gate opening process if parking slots are available
 
-3. Prevents unnecessary gate opening when no vehicle is present
+  3. Prevents unnecessary gate opening when no vehicle is present
 
-> Operational Logic: 
+  Operational Logic: 
 
-- The sensor continuously measures distance.
+  - The sensor continuously measures distance.
 
-- If the detected distance is less than 10 cm, a vehicle is considered present.
+  - If the detected distance is less than 10 cm, a vehicle is considered present.
 
-- The system then checks parking slot availability.
+  - The system then checks parking slot availability.
 
-- If a slot is available, the gate opens automatically.
+  - If a slot is available, the gate opens automatically.
 
-- This allows the parking system to operate without manual intervention.
-
-
+  - This allows the parking system to operate without manual intervention.
 
 
-2. Processing Layer
 
-3. Actuation Layer
 
-4. IoT Communication Layer
+**2. Processing Layer**
+
+**3. Actuation Layer**
+
+**4. IoT Communication Layer**
 
 
 
