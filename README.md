@@ -65,11 +65,11 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 > The processing layer is the core intelligence of the system, handled by the ESP32 microcontroller running MicroPython.The ESP32 is responsible for:
 
-• Reading sensor data
-• Counting available parking slots
-• Controlling the entry and exit gates
-• Preventing vehicles from entering when parking is full
-• Sending system data to IoT platforms
+- Reading sensor data
+- Counting available parking slots
+- Controlling the entry and exit gates
+- Preventing vehicles from entering when parking is full
+- Sending system data to IoT platforms
 
 > Parking Slot Management: The ESP32 reads the IR slot sensors and determines the number of available parking spaces.
 >  Gate Control Logic: The ESP32 determines when to open or close the parking gates based on several conditions.
@@ -101,6 +101,7 @@ The ESP32 connects to a wireless network and communicates with external platform
 **1. Telegram Bot**
 > The Telegram bot provides a messaging interface that allows users to interact with the system using commands.
 ![alt text](image.png)
+
 **2. Web Dashboard**
 > The ESP32 hosts a built-in web server that provides a real-time dashboard accessible through a web browser. Users can open the dashboard using the ESP32 IP address. Features:
 - Real-time parking slot display
