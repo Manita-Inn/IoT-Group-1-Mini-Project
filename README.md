@@ -24,8 +24,9 @@ The hardware components used in this project include sensors for detecting vehic
 
 ## System Architecture
 
+![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/487d83e3aa27cbdd059c3cbaf850ad3486605011/System%20Architecture.png)
+
 The Smart Parking System is designed using an IoT-based architecture where sensors collect real-time data, the microcontroller processes the information, and multiple platforms allow monitoring and control.
-![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/fb3381e5996d80e07275762a7439296d985b02b2/System%20Architecture.png)
 
 The system consists of four main layers: sensing layer, processing layer, communication layer, and application layer.
 
@@ -75,6 +76,9 @@ The system consists of four main layers: sensing layer, processing layer, commun
 
 
 ## Software Architecture 
+![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/51471eebc59868aa3f48107e3c81660432b93f3c/Software%20Architecture.png)
+
+The software architecture of the Smart Parking System follows a continuous control loop. After system initialization, the ESP32 connects to WiFi and IoT platforms. The system continuously reads sensor data, calculates parking slot availability, and determines whether the gate should open or remain closed. The software also updates local displays and sends real-time data to cloud platforms such as Blynk IoT Platform and the web dashboard. In addition, the system listens for user commands from Telegram to provide parking status and environmental information.
 
 ## IoT integration 
 
