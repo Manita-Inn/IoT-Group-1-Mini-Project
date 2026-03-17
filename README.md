@@ -148,6 +148,18 @@ The software architecture of the Smart Parking System follows a continuous contr
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/03a1d6292ad987619b3911938a6fdfa271052ebf/IoT%20Integration.png)
 
 ## Working Process Explanation 
+The system operates continuously through the following steps:
+1. The ESP32 initializes and connects to WiFi
+2. Sensors detect vehicle presence and parking occupancy
+3. The system calculates available parking slots
+4. If a vehicle arrives:
+   * Gate opens if slots are available
+   * Gate remains closed if parking is full
+5. Exit sensor detects leaving vehicles and opens exit gate
+6. Displays update parking information
+7. Data is sent to IoT platforms
+8. Users can monitor the system remotely
+This process repeats in real time to ensure accurate and automated parking control.
 
 ## Smart Feature
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/e4e89e5bdcca3371027a097438f5471125937fd6/Smart%20Feature.jpg)
