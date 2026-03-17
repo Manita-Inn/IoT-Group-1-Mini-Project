@@ -126,6 +126,8 @@ The ESP32 connects to a wireless network and communicates with external platform
 - Temperature and humidity display
 - Manual gate control buttons
 
+![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/28fe1ff99aad8fdb4b5646f14a18fad55969542c/Web%20Dashboard.jpg)
+
 **Blynk Mobile Application**
 > The Blynk app provides a mobile dashboard that allows users to monitor the parking system in real time. Features:
 - Display available parking slots
