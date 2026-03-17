@@ -147,6 +147,32 @@ The software architecture of the Smart Parking System follows a continuous contr
 ## IoT integration 
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/03a1d6292ad987619b3911938a6fdfa271052ebf/IoT%20Integration.png)
 
+The system integrates multiple IoT platforms to enable remote monitoring and interaction.
+IoT platforms include:
+### 1. Blynk App
+The ESP32 sends parking and environmental data to Blynk via its API.
+Users can:
+* View available parking slots
+* Monitor temperature and humidity
+* Check system status
+
+### 2. Web Dashboard
+The ESP32 provides a web interface accessible via browser.
+Features include:
+* Real-time slot availability
+* Gate status
+* Environmental data
+
+### Telegram Bot
+The Telegram bot allows command-based interaction
+
+### Communication Flow
+ESP32 sends data using:
+* Blynk API
+* HTTP requests (web dashboard)
+* Telegram Bot API
+Users access the system through mobile app, browser, or messaging
+
 ## Working Process Explanation 
 The system operates continuously through the following steps:
 1. The ESP32 initializes and connects to WiFi
