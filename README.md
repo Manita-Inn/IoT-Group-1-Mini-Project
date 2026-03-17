@@ -39,7 +39,12 @@ The system consists of four main layers:
 | Application Layer | Provides user interfaces for monitoring and control |
 
 ### **1. Sensing Layer**
-The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
+| Sensor        | Location        | Purpose                  | Output / Logic |
+|--------------|----------------|--------------------------|----------------|
+| Ultrasonic   | Entrance       | Detect incoming vehicles | < 10 cm → Vehicle detected |
+| IR Sensors   | Parking slots  | Detect slot occupancy    | 0 = Empty, 1 = Occupied |
+| Exit IR      | Exit gate      | Detect exiting vehicles  | Triggers gate opening |
+| DHT11        | Parking area   | Measure temp & humidity  | Environmental data |
 
 * **1.1 Ultrasonic Sensor:** (Vehicle Detection)
 The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time.
