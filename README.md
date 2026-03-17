@@ -114,7 +114,7 @@ Two servo motors are used to control the parking gates.
 | Entry Servo      | Opens/closes entry gate |
 | Exit Servo       | Opens/closes exit gate |
  
-**Display System **
+**Display System**
 
 | Display Type        | Purpose |
 |--------------------|--------|
