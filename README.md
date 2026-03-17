@@ -141,6 +141,7 @@ The ESP32 connects to a wireless network and communicates with external platform
 The software architecture of the Smart Parking System follows a continuous control loop. After system initialization, the ESP32 connects to WiFi and IoT platforms. The system continuously reads sensor data, calculates parking slot availability, and determines whether the gate should open or remain closed. The software also updates local displays and sends real-time data to cloud platforms such as Blynk IoT Platform and the web dashboard. In addition, the system listens for user commands from Telegram to provide parking status and environmental information.
 
 ## IoT integration 
+![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/03a1d6292ad987619b3911938a6fdfa271052ebf/IoT%20Integration.png)
 
 ## Working Process Explanation 
 
