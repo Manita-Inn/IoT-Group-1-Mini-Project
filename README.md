@@ -25,9 +25,6 @@ The hardware components used in this project include sensors for detecting vehic
   * Jumper wires: used to connect sensors, displays and actuators to the ESP32 pins 
 
 ## System Architecture
-
-## System Architecture
-
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/487d83e3aa27cbdd059c3cbaf850ad3486605011/System%20Architecture.png)
 
 The Smart Parking System follows a layered IoT architecture where sensors collect real-time data, the ESP32 processes it, and multiple platforms provide monitoring and control.
