@@ -136,6 +136,7 @@ The application layer contains the user interfaces and applications used to moni
 
 **4.1 Telegram Bot**
 The Telegram bot provides a messaging interface that allows users to interact with the system using commands.
+
 ![alt text](image.png)
 
 **4.2 Web Dashboard**
