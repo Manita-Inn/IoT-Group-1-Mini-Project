@@ -131,7 +131,7 @@ The ESP32 connects to a wireless network and communicates with external platform
 - Display available parking slots
 - Show temperature and humidity data
 - Display gate status
-- Allow remote gate control
+- Allow remote gate control /
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/9d4abc83f06885281cae606588e6fbb30a500044/Blynk%20App.jpg)
 
 
