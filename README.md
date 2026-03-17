@@ -108,7 +108,7 @@ Two servo motors are used to control the parking gates.
 
 **Display**
 
-***1. LCD 16x2 Display**
+**1. LCD 16x2 Display**
 The LCD screen displays system status locally. 
 Displayed information includes:
 - Available parking slots
@@ -116,7 +116,7 @@ Displayed information includes:
 - Temperature
 - Humidity
 
-***2. TM1637 7-Segment Display**
+**2. TM1637 7-Segment Display**
 The TM1637 display shows the number of available parking slots at the parking entrance. Drivers can easily see whether parking is available before entering the parking area.
 
 ### **3. Communication Layer**
