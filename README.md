@@ -46,22 +46,19 @@ The system consists of four main layers:
 | Exit IR      | Exit gate      | Detect exiting vehicles  | Triggers gate opening |
 | DHT11        | Parking area   | Measure temp & humidity  | Environmental data |
 
-* **1.1 Ultrasonic Sensor:** (Vehicle Detection)
-The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time.
+**Ultrasonic Sensor (Vehicle Detection)**
+- Detects vehicles at the entrance
+- Opens gate if parking is available
+- Prevents unnecessary gate operation  
+   
+   Operational Logic:
+   * The sensor continuously measures distance.
+   * If the detected distance is less than 10 cm, a vehicle is considered present.
+   * The system then checks parking slot availability.
+   * If a slot is available, the gate opens automatically.
+   * This allows the parking system to operate without manual intervention.
 
-Inside the system, it performs the following tasks:
-* Detects when a vehicle approaches the parking entrance
-* Triggers the gate opening process if parking slots are available
-* Prevents unnecessary gate opening when no vehicle is present
-
-Operational Logic:
-* The sensor continuously measures distance.
-* If the detected distance is less than 10 cm, a vehicle is considered present.
-* The system then checks parking slot availability.
-* If a slot is available, the gate opens automatically.
-* This allows the parking system to operate without manual intervention.
-
-* **1.2 IR Sensor:** (Parking Slot Detection)
+**1.2 IR Sensor: (Parking Slot Detection)**
 Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot.
 
 Function in the System:
