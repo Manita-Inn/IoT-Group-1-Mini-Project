@@ -30,11 +30,16 @@ The hardware components used in this project include sensors for detecting vehic
 
 The Smart Parking System is designed using an IoT-based architecture where sensors collect real-time data, the microcontroller processes the information, and multiple platforms allow monitoring and control.
 
-The system consists of four main layers: sensing layer, processing layer, communication layer, and application layer.
+The system consists of four main layers: 
+* Sensing layer
+* Processing layer
+* Communication layer
+* Application layer
 
 **1. Sensing Layer**
 > The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
-* **Ultrasonic Sensor:** Vehicle Detection
+
+* **1.1 Ultrasonic Sensor:** (Vehicle Detection)
 > The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time. Inside the system, it performs the following tasks:
   1. Detects when a vehicle approaches the parking entrance
   2. Triggers the gate opening process if parking slots are available
@@ -77,7 +82,6 @@ The system consists of four main layers: sensing layer, processing layer, commun
 >  Gate Control Logic: The ESP32 determines when to open or close the parking gates based on several conditions. The entry gate opens when a vehicle is detected by the ultrasonic sensor and at least one parking slot is available. The entry gate remains closed when no vehicle is detected and parking is full. Lastly, the exit gate opens automatically when the exit IR sensor detects a vehicle leaving.
 
 * **Actuators: Servo Motors**
-
 Two servo motors are used to control the parking gates.
  
 1. Entry Gate Servo:
