@@ -36,7 +36,7 @@ The system consists of four main layers:
 * Communication layer
 * Application layer
 
-**1. Sensing Layer**
+### **1. Sensing Layer**
 The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
 
 * **1.1 Ultrasonic Sensor:** (Vehicle Detection)
@@ -77,7 +77,7 @@ The data is used for:
   2. Sending temperature and humidity data to the Blynk application
   3. Providing environmental monitoring through Telegram commands
 
-**2. Processing Layer**
+### **2. Processing Layer**
 
 The processing layer is the core intelligence of the system, handled by the ESP32 microcontroller running MicroPython.
 
@@ -119,7 +119,7 @@ Displayed information includes:
 ***2. TM1637 7-Segment Display**
 The TM1637 display shows the number of available parking slots at the parking entrance. Drivers can easily see whether parking is available before entering the parking area.
 
-**3. Communication Layer**
+### **3. Communication Layer**
 The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
 
 - **Internet / WiFi Connectivity:**
@@ -131,7 +131,7 @@ The ESP32 connects to a wireless network and communicates with external platform
  3. Hosting the web dashboard
  4. Sending notifications
 
-**4. Application Layer**
+### **4. Application Layer**
 The application layer contains the user interfaces and applications used to monitor and control the system. These applications allow users to interact with the parking system remotely. The system integrates **three main IoT platforms**.
 
 **4.1 Telegram Bot**
