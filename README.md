@@ -140,7 +140,7 @@ This layer provides user interaction through multiple platforms.
 
 #### Telegram Bot
 The Telegram bot provides a command-based interface for users to interact with the system and check real-time information.
-
+![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/54e21dcd48edbfa9077dad40fc6cb220947e1a63/Telegram%20Bot%20commands.jpg)
 ---
 
 #### Web Dashboard
