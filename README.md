@@ -1,3 +1,13 @@
+## Test Table
+
+This is a simple test table in GitHub Markdown:
+
+| Name   | Role        | Status  |
+|--------|------------|---------|
+| Alice  | Developer  | Active  |
+| Bob    | Designer   | Inactive|
+| Carol  | Manager    | Active  |
+
 # IoT-Group1-Mini-Project
 
 ## Introduction
