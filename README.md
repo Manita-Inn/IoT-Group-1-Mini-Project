@@ -43,29 +43,29 @@ The sensing layer consists of multiple sensors responsible for collecting enviro
 The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time.
 
 Inside the system, it performs the following tasks:
-1. Detects when a vehicle approaches the parking entrance
-2. Triggers the gate opening process if parking slots are available
-3. Prevents unnecessary gate opening when no vehicle is present
+* Detects when a vehicle approaches the parking entrance
+* Triggers the gate opening process if parking slots are available
+* Prevents unnecessary gate opening when no vehicle is present
 
 Operational Logic:
-1. The sensor continuously measures distance.
-2. If the detected distance is less than 10 cm, a vehicle is considered present.
-3. The system then checks parking slot availability.
-4. If a slot is available, the gate opens automatically.
-5. This allows the parking system to operate without manual intervention.
+* The sensor continuously measures distance.
+* If the detected distance is less than 10 cm, a vehicle is considered present.
+* The system then checks parking slot availability.
+* If a slot is available, the gate opens automatically.
+* This allows the parking system to operate without manual intervention.
 
 * **1.2 IR Sensor:** (Parking Slot Detection)
 Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot.
 
 Function in the System:
-1. Monitor individual parking spaces
-2. Determine the number of available parking slots
-3. Update the parking slot display
-4. Provide real-time information to the web dashboard and Blynk application
+* Monitor individual parking spaces
+* Determine the number of available parking slots
+* Update the parking slot display
+* Provide real-time information to the web dashboard and Blynk application
      
 Operational Logic:
-1. Sensor Value is 0 > Slot is empty
-2. Sensor Value is 1 > Slot is Occupied
+* Sensor Value is 0 > Slot is empty
+* Sensor Value is 1 > Slot is Occupied
 
 Special IR or IR Exit Sensor is an additional infrared sensor which installed at the exit gate to detect vehicles leaving the parking area. **Functions**: Detect vehicles exiting the parking lot and trigger automatic opening of the exit gate. Once a vehicle passes the exit sensor, the system opens the exit gate and automatically closes it after a short delay. 
 
@@ -73,9 +73,9 @@ Special IR or IR Exit Sensor is an additional infrared sensor which installed at
 The DHT11 sensor measures temperature and humidity in the parking environment. Although it is not required for parking operations, it provides useful environmental data for monitoring the parking area.
 
 The data is used for:
-  1. Displaying environmental conditions on the LCD screen
-  2. Sending temperature and humidity data to the Blynk application
-  3. Providing environmental monitoring through Telegram commands
+* Displaying environmental conditions on the LCD screen
+* Sending temperature and humidity data to the Blynk application
+* Providing environmental monitoring through Telegram commands
 
 ### **2. Processing Layer**
 
@@ -126,10 +126,10 @@ The communication layer allows the system to exchange data with external devices
 The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity.
 
  Functions of this layer include:
- 1. Sending parking data to IoT platforms (Telegram bot, website, and Blynk mobile app)
- 2. Receiving remote commands
- 3. Hosting the web dashboard
- 4. Sending notifications
+* Sending parking data to IoT platforms (Telegram bot, website, and Blynk mobile app)
+* Receiving remote commands
+* Hosting the web dashboard
+* Sending notifications
 
 ### **4. Application Layer**
 The application layer contains the user interfaces and applications used to monitor and control the system. These applications allow users to interact with the parking system remotely. The system integrates **three main IoT platforms**.
