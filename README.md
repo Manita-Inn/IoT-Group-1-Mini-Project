@@ -163,7 +163,7 @@ Features include:
 * Gate status
 * Environmental data
 
-### Telegram Bot
+### 3. Telegram Bot
 The Telegram bot allows command-based interaction
 
 ### Communication Flow
