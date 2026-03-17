@@ -1,13 +1,3 @@
-## Test Table
-
-This is a simple test table in GitHub Markdown:
-
-| Name   | Role        | Status  |
-|--------|------------|---------|
-| Alice  | Developer  | Active  |
-| Bob    | Designer   | Inactive|
-| Carol  | Manager    | Active  |
-
 # IoT-Group1-Mini-Project
 
 ## Introduction
@@ -41,10 +31,12 @@ The hardware components used in this project include sensors for detecting vehic
 The Smart Parking System is designed using an IoT-based architecture where sensors collect real-time data, the microcontroller processes the information, and multiple platforms allow monitoring and control.
 
 The system consists of four main layers: 
-* Sensing layer
-* Processing layer
-* Communication layer
-* Application layer
+| Layer              | Description |
+|-------------------|------------|
+| Sensing Layer     | Collects real-time data from the environment |
+| Processing Layer  | Processes data and controls system behavior |
+| Communication Layer | Transfers data via WiFi to external platforms |
+| Application Layer | Provides user interfaces for monitoring and control |
 
 ### **1. Sensing Layer**
 The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
