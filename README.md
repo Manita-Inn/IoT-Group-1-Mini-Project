@@ -58,22 +58,25 @@ The system consists of four main layers:
    * If a slot is available, the gate opens automatically.
    * This allows the parking system to operate without manual intervention.
 
-**1.2 IR Sensor: (Parking Slot Detection)**
+**IR Sensor (Parking Slot Detection + Exit)**
 Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot.
 
-Function in the System:
-* Monitor individual parking spaces
-* Determine the number of available parking slots
-* Update the parking slot display
-* Provide real-time information to the web dashboard and Blynk application
-     
-Operational Logic:
-* Sensor Value is 0 > Slot is empty
-* Sensor Value is 1 > Slot is Occupied
+ Function in the System:
+ * Monitor individual parking spaces
+ * Determine the number of available parking slots
+ * Update the parking slot display
+ * Provide real-time information to the web dashboard and Blynk application
+      
+ Operational Logic:
+ * Sensor Value is 0 > Slot is empty
+ * Sensor Value is 1 > Slot is Occupied
 
-Special IR or IR Exit Sensor is an additional infrared sensor which installed at the exit gate to detect vehicles leaving the parking area. **Functions**: Detect vehicles exiting the parking lot and trigger automatic opening of the exit gate. Once a vehicle passes the exit sensor, the system opens the exit gate and automatically closes it after a short delay. 
+**Special IR or IR Exit Sensor** is an additional infrared sensor which installed at the exit gate to detect vehicles leaving the parking area. 
 
-* **1.3 DHT11 Sensor:** (Environmental Monitoring)
+**Functions**: 
+* Detect vehicles exiting the parking lot and trigger automatic opening of the exit gate. Once a vehicle passes the exit sensor, the system opens the exit gate and automatically closes it after a short delay. 
+
+**DHT11 Sensor: (Environmental Monitoring)**
 The DHT11 sensor measures temperature and humidity in the parking environment. Although it is not required for parking operations, it provides useful environmental data for monitoring the parking area.
 
 The data is used for:
@@ -85,49 +88,54 @@ The data is used for:
 
 The processing layer is the core intelligence of the system, handled by the ESP32 microcontroller running MicroPython.
 
-The ESP32 is responsible for:
-- Reading sensor data
-- Counting available parking slots
-- Controlling the entry and exit gates
-- Preventing vehicles from entering when parking is full
-- Sending system data to IoT platforms
+The ESP32 (MicroPython) acts as the system controller:
+| Function                | Description |
+|------------------------|------------|
+| Sensor Reading         | Collects data from all sensors |
+| Slot Calculation       | Determines available parking spaces |
+| Gate Control           | Controls entry and exit gates |
+| Access Control         | Blocks entry when full |
+| Data Transmission      | Sends data to IoT platforms |
 
 Parking Slot Management: The ESP32 reads the IR slot sensors and determines the number of available parking spaces.
 
 Gate Control Logic: 
-* Entry gate opens when: vehicle detected and slots available
-* Entry gate stays closed when: no vehicle or parking is full
-* Exit gate opens when: exit sensor detects a vehicle
+| Condition                          | Action |
+|-----------------------------------|--------|
+| Vehicle + slot available          | Open entry gate |
+| No vehicle OR parking full        | Keep entry gate closed |
+| Vehicle detected at exit sensor   | Open exit gate |
 
 * **Actuators: Servo Motors**
 Two servo motors are used to control the parking gates.
+
+| Component        | Function |
+|------------------|---------|
+| Entry Servo      | Opens/closes entry gate |
+| Exit Servo       | Opens/closes exit gate |
  
-1. Entry Gate Servo:
-- Opens when a vehicle is detected and parking is available
-- Closes automatically after the vehicle enters
+**Display System **
 
-2. Exit Gate Servo:
-- Opens when a vehicle passes the exit sensor
-- Closes after a short delay
-
-**Display**
-
-**1. LCD 16x2 Display**
-The LCD screen displays system status locally. 
-Displayed information includes:
-- Available parking slots
-- Gate status
-- Temperature
-- Humidity
-
-**2. TM1637 7-Segment Display**
-The TM1637 display shows the number of available parking slots at the parking entrance. Drivers can easily see whether parking is available before entering the parking area.
+| Display Type        | Purpose |
+|--------------------|--------|
+| LCD 16x2           | Shows slots, gate status, temperature, humidity |
+| TM1637             | Shows available slots at entrance |
 
 ### **3. Communication Layer**
 The communication layer allows the system to exchange data with external devices and cloud services. This layer uses the ESP32’s built-in WiFi module to connect to the internet and transfer data. This communication layer ensures that the system can be monitored and controlled remotely via IoT platforms.
 
+| Function              | Description |
+|----------------------|------------|
+| Data Transmission    | Sends slot, gate, and environment data |
+| Remote Commands      | Receives control inputs |
+| Web Hosting          | Hosts dashboard |
+| Notifications        | Sends alerts |
+
 - **Internet / WiFi Connectivity:**
-The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes: Parking slot availability, gate status, temperature and humidity.
+The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes:
+* Parking slot availability
+* Gate status
+* Temperature and humidity.
 
  Functions of this layer include:
 * Sending parking data to IoT platforms (Telegram bot, website, and Blynk mobile app)
@@ -137,6 +145,12 @@ The ESP32 connects to a wireless network and communicates with external platform
 
 ### **4. Application Layer**
 The application layer contains the user interfaces and applications used to monitor and control the system. These applications allow users to interact with the parking system remotely. The system integrates **three main IoT platforms**.
+
+| Platform        | Purpose              | Key Features |
+|----------------|---------------------|-------------|
+| Telegram Bot   | Command interface    | Remote control, notifications |
+| Web Dashboard  | Real-time monitoring | Slot display, gate control |
+| Blynk App      | Mobile monitoring    | Live data, remote access |
 
 **4.1 Telegram Bot**
 The Telegram bot provides a messaging interface that allows users to interact with the system using commands.
