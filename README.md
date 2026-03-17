@@ -40,10 +40,13 @@ The system consists of four main layers:
 > The sensing layer consists of multiple sensors responsible for collecting environmental and operational data from the parking area. These sensors continuously provide input to the ESP32 microcontroller.
 
 * **1.1 Ultrasonic Sensor:** (Vehicle Detection)
-> The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time. Inside the system, it performs the following tasks:
+> The ultrasonic sensor is installed at the parking entrance to detect incoming vehicles. The sensor measures the distance between itself and an object by sending ultrasonic sound waves and measuring the echo time.
+
+  > Inside the system, it performs the following tasks:
   1. Detects when a vehicle approaches the parking entrance
   2. Triggers the gate opening process if parking slots are available
   3. Prevents unnecessary gate opening when no vehicle is present
+     
   > Operational Logic:
   1. The sensor continuously measures distance.
   2. If the detected distance is less than 10 cm, a vehicle is considered present.
@@ -51,15 +54,18 @@ The system consists of four main layers:
   4. If a slot is available, the gate opens automatically.
   5. This allows the parking system to operate without manual intervention.
 
-* **IR Sensor:** Parking Slot Detection
-> Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot. Function in the System:
+* **1.2 IR Sensor:** (Parking Slot Detection)
+> Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot.
+> Function in the System:
   1. Monitor individual parking spaces
   2. Determine the number of available parking slots
   3. Update the parking slot display
   4. Provide real-time information to the web dashboard and Blynk application
+     
   > Operational Logic:
   1. Sensor Value is 0 > Slot is empty
   2. Sensor Value is 1 > Slot is Occupied
+     
 > Special IR or IR Exit Sensor is an additional infrared sensor which installed at the exit gate to detect vehicles leaving the parking area. **Functions**: Detect vehicles exiting the parking lot and trigger automatic opening of the exit gate. Once a vehicle passes the exit sensor, the system opens the exit gate and automatically closes it after a short delay. 
 
 * **DHT11 Sensor:** Environmental Monitoring
