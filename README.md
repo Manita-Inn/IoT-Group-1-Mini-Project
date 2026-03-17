@@ -46,7 +46,7 @@ The system consists of four main layers:
 | Exit IR      | Exit gate      | Detect exiting vehicles  | Triggers gate opening |
 | DHT11        | Parking area   | Measure temp & humidity  | Environmental data |
 
-**Ultrasonic Sensor (Vehicle Detection)**
+**1.1 Ultrasonic Sensor (Vehicle Detection)**
 - Detects vehicles at the entrance
 - Opens gate if parking is available
 - Prevents unnecessary gate operation  
@@ -58,7 +58,7 @@ The system consists of four main layers:
    * If a slot is available, the gate opens automatically.
    * This allows the parking system to operate without manual intervention.
 
-**IR Sensor (Parking Slot Detection + Exit)**
+**1.2 IR Sensor (Parking Slot Detection + Exit)**
 Three IR sensors are installed at each parking slot to detect whether a vehicle is occupying the slot.
 
  Function in the System:
@@ -76,7 +76,7 @@ Three IR sensors are installed at each parking slot to detect whether a vehicle 
 **Functions**: 
 * Detect vehicles exiting the parking lot and trigger automatic opening of the exit gate. Once a vehicle passes the exit sensor, the system opens the exit gate and automatically closes it after a short delay. 
 
-**DHT11 Sensor: (Environmental Monitoring)**
+**1.3 DHT11 Sensor: (Environmental Monitoring)**
 The DHT11 sensor measures temperature and humidity in the parking environment. Although it is not required for parking operations, it provides useful environmental data for monitoring the parking area.
 
 The data is used for:
@@ -97,9 +97,7 @@ The ESP32 (MicroPython) acts as the system controller:
 | Access Control         | Blocks entry when full |
 | Data Transmission      | Sends data to IoT platforms |
 
-Parking Slot Management: The ESP32 reads the IR slot sensors and determines the number of available parking spaces.
-
-Gate Control Logic: 
+* **Gate Control Logic:**
 | Condition                          | Action |
 |-----------------------------------|--------|
 | Vehicle + slot available          | Open entry gate |
@@ -131,7 +129,7 @@ The communication layer allows the system to exchange data with external devices
 | Web Hosting          | Hosts dashboard |
 | Notifications        | Sends alerts |
 
-- **Internet / WiFi Connectivity:**
+**Internet / WiFi Connectivity:**
 The ESP32 connects to a wireless network and communicates with external platforms using internet protocols. Data transmitted through this layer includes:
 * Parking slot availability
 * Gate status
@@ -187,31 +185,37 @@ The software architecture of the Smart Parking System follows a continuous contr
 ## IoT integration 
 ![](https://github.com/Manita-Inn/IoT-Group-1-Mini-Project/blob/03a1d6292ad987619b3911938a6fdfa271052ebf/IoT%20Integration.png)
 
+## IoT Integration & Communication
+
 The system integrates multiple IoT platforms to enable remote monitoring and interaction.
-IoT platforms include:
-### 1. Blynk App
-The ESP32 sends parking and environmental data to Blynk via its API.
-Users can:
-* View available parking slots
-* Monitor temperature and humidity
-* Check system status
 
-### 2. Web Dashboard
-The ESP32 provides a web interface accessible via browser.
-Features include:
-* Real-time slot availability
-* Gate status
-* Environmental data
+### IoT Platforms
 
-### 3. Telegram Bot
-The Telegram bot allows command-based interaction
+| Platform        | Description                          | User Capabilities |
+|----------------|--------------------------------------|------------------|
+| Blynk App      | ESP32 sends data via Blynk API       | View slots, monitor temperature & humidity, check system status |
+| Web Dashboard  | Browser-based interface hosted by ESP32 | View real-time slots, gate status, environmental data |
+| Telegram Bot   | Command-based messaging interface    | Send commands and interact with system |
+
+---
 
 ### Communication Flow
-ESP32 sends data using:
-* Blynk API
-* HTTP requests (web dashboard)
-* Telegram Bot API
-Users access the system through mobile app, browser, or messaging
+
+| Component | Method Used            | Purpose |
+|----------|------------------------|--------|
+| Blynk    | Blynk API              | Send parking and environmental data |
+| Web      | HTTP Requests          | Serve dashboard data |
+| Telegram | Telegram Bot API       | Enable command-based interaction |
+
+---
+
+### User Access
+
+| Access Method | Platform Used |
+|--------------|--------------|
+| Mobile App   | Blynk |
+| Web Browser  | Web Dashboard |
+| Messaging    | Telegram Bot |
 
 ## Working Process Explanation 
 The system operates continuously through the following steps:
